@@ -1,0 +1,12 @@
+#Install kubectl in any node and have the kubeconfig set so that kubectl can access the cluster API
+
+kubectl get nodes
+kubectl get nodes --show-labels
+kubectl get pods --all-namespaces -o wide
+kubectl get pods -n <namespace>
+kubectl cordon <node>
+kubectl uncordon <node>
+#Taint nodes
+kubectl taint nodes <node1> <node2> key=value:NoSchedule
+#Untaint the node
+kubectl taint nodes <node> key:NoSchedule- 
