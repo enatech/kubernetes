@@ -1,12 +1,56 @@
 #Install kubectl in any node and have the kubeconfig set so that kubectl can access the cluster API
 
+Nodes
+
 kubectl get nodes
 kubectl get nodes --show-labels
+
+Namespaces and Pods
+
 kubectl get pods --all-namespaces -o wide
 kubectl get pods -n <namespace>
+#Get the pods detail in json
+kubectl get pods -o=jsonpath="{.items[*]['metadata.name','metada.namespace']}"
+#Start a nginx pod
+kubectl run nginx --image=nginx --restart=Never -n <ns>
+kubectl describe pod <podname>
+kubectl get ns
+#Change an image of the nginx pod on the fly
+kubectl set image pod/nginx nginx=1.17.4 
+#watch the pod
+kubectl get pod nginx -w
+#Exec into a pod
+kubectl exec -it <pod> sh
+#Run a busybox pod with a command
+kubectl run busybox --image=busybox --restart=Never -- /bin/sh -c "sleep 3600"
+#Get pod logs
+kubectl pod logs <podname>
+#List all pods with a label
+kubectl get pods --show-labels
+# Scale
+kubectl scale deploy <deploymentname> --replicas=20
+#Rollout status
+kubectl rollout status deploy <deployment>
+kubectl rollout history deploy <deployment>
+#Autoscale
+kubectl autoscale deploy <deployment> --min=2 --max=5 --cpu-percent=85
+kubectl get hpa
+
+#Services
+kubectl get svc -n <ns>
+
+#Endpoints
+kubectl get ep --all-namepaces
+
+#Admin Stuff
+
 kubectl cordon <node>
 kubectl uncordon <node>
 #Taint nodes
 kubectl taint nodes <node1> <node2> key=value:NoSchedule
 #Untaint the node
 kubectl taint nodes <node> key:NoSchedule- 
+#Label Nodes
+kubectl label node <nodename> key=value
+#Remove label
+kubectl label node <nodename> key-
