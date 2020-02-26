@@ -33,6 +33,9 @@ kubectl rollout undo deploy nginx
 
 kubectl autoscale deploy nginx --min=2 --max=5 --cpu-percent=85
 
-### Multicontainer deployment, add a perl container to the existing yaml
+### Multicontainer deployment, add an alpine container to the existing yaml and exec into the pod/container nginx
 
 [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-multicontainer-deploy.yaml]nginx-multicontainer-deploy.yaml
+
+kubectl exec -it <podname> sh -c nginx-multi
+  
