@@ -39,3 +39,13 @@ kubectl autoscale deploy nginx --min=2 --max=5 --cpu-percent=85
 
 kubectl exec -it <podname> sh -c nginx-multi
   
+# Service
+
+**Create a service for the above nginx simple deployment. Using a service, the application can be accessed via ClusterIP within any node of the cluster; changing the type to NodePort, the app can be accessed on any node on targetPort via outside the cluster also
+
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-service.yaml]nginx-service.yaml
+
+kubectl get svc
+
+curl <ClusterIp>:8080
+  
