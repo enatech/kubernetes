@@ -5,7 +5,7 @@ To run all yaml files, a minimum kubernetes cluster is requried (one master, or 
 # Deployments
 ### simple nginx with 2 replicas
 
-kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-deployment.yaml]nginx-deployment.yaml
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-deployment.yaml!]nginx-deployment.yaml
 
 **Check the deployment and pod; test the pod via IP -**
 
@@ -35,17 +35,21 @@ kubectl autoscale deploy nginx --min=2 --max=5 --cpu-percent=85
 
 ### Multicontainer deployment, add an alpine container to the existing yaml and exec into the pod/container nginx
 
-[https://github.com/enatech/kubernetes/blob/master/ckad/nginx-multicontainer-deploy.yaml]nginx-multicontainer-deploy.yaml
+[https://github.com/enatech/kubernetes/blob/master/ckad/nginx-multicontainer-deploy.yaml!]nginx-multicontainer-deploy.yaml
 
 kubectl exec -it <podname> sh -c nginx-multi
   
 # Service
 
-**Create a service for the above nginx simple deployment. Using a service, the application can be accessed via ClusterIP within any node of the cluster; changing the type to NodePort, the app can be accessed on any node on targetPort via outside the cluster also
+**Create a service for the above nginx simple deployment. Using a service, the application can be accessed via ClusterIP within any node of the cluster; changing the type to NodePort, the app can be accessed on any node on targetPort via outside the cluster also**
 
-kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-service.yaml]nginx-service.yaml
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-service.yaml!]nginx-service.yaml
 
 kubectl get svc
 
 curl <ClusterIp>:8080
+  
+For NodePort
+
+curl nodeName:nodePort
   
