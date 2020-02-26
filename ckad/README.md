@@ -5,7 +5,7 @@ To run all yaml files, a minimum kubernetes cluster is requried (one master, or 
 # Deployments
 ### simple nginx with 2 replicas
 
-kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-deployment.yaml!]nginx-deployment.yaml
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-deployment.yaml](nginx-deployment.yaml)
 
 **Check the deployment and pod; test the pod via IP -**
 
