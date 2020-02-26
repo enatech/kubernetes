@@ -57,6 +57,10 @@ curl nodeName:nodePort
 
 **Create a PV with 10GB storage and RW access using host's /tmp/data folder to store data
 
-kubectl apply -f [](pv.yaml)
-kubectl apply -f [](pvc.yaml)
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pv.yaml](pv.yaml)
+
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pvc.yaml](pvc.yaml)
   
+**Create similar PV using NFS
+
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pv-nfs.yaml](pv-nfs.yaml)
