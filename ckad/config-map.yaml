@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cmap
+  namespace: test
+data:
+  data.cfg: |-
+    strength=10
+    acceptability=0
