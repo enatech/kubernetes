@@ -35,7 +35,7 @@ kubectl autoscale deploy nginx --min=2 --max=5 --cpu-percent=85
 
 ### Multicontainer deployment, add an alpine container to the existing yaml and exec into the pod/container nginx
 
-[https://github.com/enatech/kubernetes/blob/master/ckad/nginx-multicontainer-deploy.yaml!](nginx-multicontainer-deploy.yaml)
+[https://github.com/enatech/kubernetes/blob/master/ckad/nginx-multicontainer-deploy.yaml](nginx-multicontainer-deploy.yaml)
 
 kubectl exec -it <podname> sh -c nginx-multi
   
@@ -43,13 +43,20 @@ kubectl exec -it <podname> sh -c nginx-multi
 
 **Create a service for the above nginx simple deployment. Using a service, the application can be accessed via ClusterIP within any node of the cluster; changing the type to NodePort, the app can be accessed on any node on targetPort via outside the cluster also**
 
-kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-service.yaml!](nginx-service.yaml)
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-service.yaml](nginx-service.yaml)
 
-kubectl get svc
+kubectl get svc --all-namespaces
 
 curl <ClusterIp>:8080
   
 For NodePort
 
 curl nodeName:nodePort
+
+# Persistent Volumes and PVCs
+
+**Create a PV with 10GB storage and RW access using host's /tmp/data folder to store data
+
+kubectl apply -f [](pv.yaml)
+kubectl apply -f [](pvc.yaml)
   
