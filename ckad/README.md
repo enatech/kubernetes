@@ -1,4 +1,4 @@
-CKAD Exam Prep
+**CKAD Exam Prep**
 
 To run all yaml files, a minimum kubernetes cluster is requried (one master, or one master and two workers)
 
@@ -8,6 +8,7 @@ To run all yaml files, a minimum kubernetes cluster is requried (one master, or 
 kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-deployment.yaml]nginx-deployment.yaml
 
 **Check the deployment and pod; test the pod via IP -**
+
 kubectl get deploy --show-labels
 
 kubectl get deploy -l app=nginx
@@ -19,9 +20,11 @@ kubectl describe pod <podname> | grep IP
 curl IP:80
 
 **Now scale the deployment with 5 replicas**
+
 kubectl scale deploy nginx --replicas=5
 
 **Test some rollout and update scenarios; then autoscale**
+
 kubectl set image deploy/nginx nginx=nginx:1.17.4
 
 kubectl rollout history deploy nginx
