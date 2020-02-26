@@ -9,9 +9,13 @@ kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/nginx-d
 
 **Check the deployment and pod; test the pod via IP -**
 kubectl get deploy --show-labels
+
 kubectl get deploy -l app=nginx
+
 kubectl get pods -l app=nginx
+
 kubectl describe pod <podname> | grep IP
+
 curl IP:80
 
 **Now scale the deployment with 5 replicas**
@@ -19,8 +23,11 @@ kubectl scale deploy nginx --replicas=5
 
 **Test some rollout and update scenarios; then autoscale**
 kubectl set image deploy/nginx nginx=nginx:1.17.4
+
 kubectl rollout history deploy nginx
+
 kubectl rollout undo deploy nginx
+
 kubectl autoscale deploy nginx --min=2 --max=5 --cpu-percent=85
 
 ### Multicontainer deployment, add a perl container to the existing yaml
