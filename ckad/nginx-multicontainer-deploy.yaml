@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx-multi
+  labels:
+    app: nginx-multi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-multi
+  template:
+    metadata:
+      labels:
+        app: nginx-multi
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+      - name: perl
+        image: k8.gcr.io/perl
