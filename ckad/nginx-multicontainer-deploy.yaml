@@ -19,5 +19,6 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
-      - name: perl
-        image: k8.gcr.io/perl
+      - name: alpine
+        image: alpine
+        command: ["/bin/sh"]
