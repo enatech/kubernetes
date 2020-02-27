@@ -67,7 +67,7 @@ kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pv-nfs.
 
 # Secrets and Deploy using secret
 
-**Create a secret for username and password (example) and then create a deploy for busybox that uses the username env variable and loads the value from secret via the key
+**Create a secret for username and password (example) and then create a deploy for busybox that uses the username env variable and loads the value from secret via the key. Secret can also be loaded via envFrom->secretRef in spec.containers.envFrom.secretRef.
 
 kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/secrets.yaml] secrets.yaml
 
