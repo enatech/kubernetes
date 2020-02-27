@@ -79,6 +79,8 @@ kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/secrets
 
 kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/busybox-load-secret.yaml] busybox.yaml
 
-# SecurityContext and Deployment - create a user (sudo useradd -u 2001 user1) and a group(sudo groupadd -g 3001 group1) on one of the worker nodes, then try to run below deployment. Exec inside the pod and try to write in /tmp folder. From prev example, /tmp on pod is a mountPath from /tmp/data on the host, since /tmp/data is owned by root, this pod/container can't write to that folder anymore. 
+# SecurityContext and Deployment - 
+
+**create a user (sudo useradd -u 2001 user1) and a group(sudo groupadd -g 3001 group1) on one of the worker nodes, then try to run below deployment. Exec inside the pod and try to write in /tmp folder. From prev example, /tmp on pod is a mountPath from /tmp/data on the host, since /tmp/data is owned by root, this pod/container can't write to that folder anymore. 
 
 kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/busybox-deploy-sc.yaml](busybox-securitycontext.yaml)
