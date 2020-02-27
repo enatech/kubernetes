@@ -1,11 +1,11 @@
 apiVersion: apps/v1
-Kind: Deployment
+kind: Deployment
 metadata:
   name: busybox-pvc
   labels:
     app: busybox-pvc
 spec:
-  replicas:1
+  replicas: 1
   selector:
     matchLabels:
       app: busybox-pvc
@@ -17,11 +17,11 @@ spec:
       containers:
       - name: busybox-pvc
         image: busybox
-        commands: ['sh', '-c', "echo Hello PVC! && sleep 3600"]
+        command: ['sh', '-c', "echo Hello PVC! && sleep 3600"]
         volumeMounts:
         - mountPath: /tmp/
-          name: myStorage
+          name: my-storage
       volumes:
-      - name: myStorage
+      - name: my-storage
         persistentVolumeClaim:
           claimName: pvc
