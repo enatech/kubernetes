@@ -65,10 +65,12 @@ kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pvc.yam
 
 kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pv-nfs.yaml](pv-nfs.yaml)
 
-**Use the newly created PVC in a Deployment
+**Use the newly created PVC in a Deployment, then write any file in worker host where the pod is running (not discussing NFS at the moment) on the hostPath and exec inside the pod to see the new file on mountPath
 
 kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/busybox-deploy-pvc.yaml](busybox-deploy-pvc.yaml)
 
+kubectl exec -it <podname> sh OR kubectl exec -it <podname> -- ls -l /tmp
+ 
 # Secrets and Deploy using secret
 
 **Create a secret for username and password (example) and then create a deploy for busybox that uses the username env variable and loads the value from secret via the key. Secret can also be loaded via envFrom->secretRef in spec.containers.envFrom.secretRef.
