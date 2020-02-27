@@ -15,7 +15,7 @@ spec:
         app: busybox-sc
     spec:
       securityContext:
-        rusAsUser: 2001
+        runAsUser: 2001
         runAsGroup: 3001
       containers:
       - name: busybox-sc
