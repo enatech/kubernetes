@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+Kind: Deployment
+metadata:
+  name: busybox-pvc
+  labels:
+    app: busybox-pvc
+spec:
+  replicas:1
+  selector:
+    matchLabels:
+      app: busybox-pvc
+  template:
+    metadata:
+      labels:
+        app: busybox-pvc
+    spec:
+      containers:
+      - name: busybox-pvc
+        image: busybox
+        commands: ['sh', '-c', "echo Hello PVC! && sleep 3600"]
+        volumeMounts:
+        - mountPath: /tmp/
+          name: myStorage
+      volumes:
+      - name: myStorage
+        persistentVolumeClaim:
+          claimName: pvc
