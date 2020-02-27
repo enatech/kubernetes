@@ -64,3 +64,11 @@ kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pvc.yam
 **Create similar PV using NFS
 
 kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/pv-nfs.yaml](pv-nfs.yaml)
+
+# Secrets and Deploy using secret
+
+**Create a secret for username and password (example) and then create a deploy for busybox that uses the username env variable and loads the value from secret via the key
+
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/secrets.yaml] secrets.yaml
+
+kubectl apply -f [https://github.com/enatech/kubernetes/blob/master/ckad/busybox-load-secret.yaml] busybox.yaml
