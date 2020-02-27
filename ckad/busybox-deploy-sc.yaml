@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-sc
+  labels:
+    app: busybox-sc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox-sc
+  template:
+    metadata:
+      labels:
+        app: busybox-sc
+    spec:
+      securityContext:
+        rusAsUser: 2001
+        runAsGroup: 3001
+      containers:
+      - name: busybox-sc
+        image: busybox
+        command: ['sh', '-c', "echo Hello Test Security Context! && sleep 3600"]
+        volumeMounts:
+        - mountPath: /tmp/
+          name: my-storage
+      volumes:
+      - name: my-storage
+        persistentVolumeClaim:
+          claimName: pvc
