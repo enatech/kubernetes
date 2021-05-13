@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mclp-pod
+  labels:
+    app: mclp
+spec:
+  containers:
+    - name: nginx2
+      image: nginx
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 5
+    - name: debian2
+      image: debian
+      command: ["/bin/sh"]
+      args: ["-c", "echo Capture logs && sleep 3600"]
+      livenessProbe:
+        exec:
+          command:
+          - echo
+          - test
+        initialDelaySeconds: 5
+        periodSeconds: 5
