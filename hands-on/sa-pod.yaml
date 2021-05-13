@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sa-pod
+  labels:
+    app: sa-busybox
+spec:
+  serviceAccountName: my-sa
+  containers:
+    - name: sabusybox-c
+      image: busybox 
+      command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 600']  
