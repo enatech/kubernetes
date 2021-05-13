@@ -1,2 +1,2 @@
 # kubernetes
-Kubernetes files and scripts to automate the cluster
+Kubernetes object yaml files
