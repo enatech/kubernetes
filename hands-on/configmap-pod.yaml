@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmappod
+  labels:
+    app: configmappod
+spec:
+  containers:
+    - name: configmap-c
+      image: busybox 
+      command: ['sh', '-c', 'echo $MY_VAR && sleep 600']  
+      env:
+      - name: MY_VAR
+        valueFrom:
+          configMapKeyRef:
+            name: myconfigmap
+            key: mykey
