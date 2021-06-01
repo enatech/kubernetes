@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faulty-deployment
+  labels:
+    app: nginxapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginxapple
+  template:
+    metadata:
+      labels:
+        app: nginxapple
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
