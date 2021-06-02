@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: faulty-service
+spec:
+  type: ClusterIP
+  selector:
+    app: faultyapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
