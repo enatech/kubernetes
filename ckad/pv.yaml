@@ -3,9 +3,9 @@ kind: PersistentVolume
 metadata:
   name: pv
 spec:
-  storageClassName: manual
+  storageClassName: localdisk
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
