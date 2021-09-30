@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc
 spec:
-  storageClassName: manual
+  storageClassName: localdisk
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 500Mi
