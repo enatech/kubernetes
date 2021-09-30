@@ -10,5 +10,5 @@ spec:
     - name: confname
       valueFrom:
         configMapKeyRef:
-          name: conf-pod
+          name: conf
           key: name
