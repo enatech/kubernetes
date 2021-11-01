@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: php-apache
+  name: php-apache
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: php-apache
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: php-apache
+    spec:
+      containers:
+      - image: us.gcr.io/k8s-artifacts-prod/hpa-example
+        name: hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "0.25"
