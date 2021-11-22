@@ -19,4 +19,4 @@ spec:
     - name: sec-context-vol
       mountPath: /testonhost
     securityContext:
-      allowPriviledgeEscalation: false
+      allowPrivilegeEscalation: false
