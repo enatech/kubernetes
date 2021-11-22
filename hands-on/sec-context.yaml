@@ -4,7 +4,6 @@ metadata:
   name: sec-context-pod
 spec:
   securityContext:
-    readOnlyRootFilesystem: true
     runAsUser: 2000
     fsGroup: 3000
   volumes:
