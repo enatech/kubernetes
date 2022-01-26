@@ -1,6 +1,8 @@
 ### Create a ServiceAccount, ClusterRole and RoleBinding specific to namespaces so that only actions defined in the CLusterRole are allowed on the namespaces
 
-kubectl create ns ns1 ns2
+kubectl create ns ns1 
+
+kubectl create ns ns2
 
 kubectl apply -f nginx.yaml
 
