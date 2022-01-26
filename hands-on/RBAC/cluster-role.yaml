@@ -4,5 +4,5 @@ metadata:
  name: delete-pod
 rules:
 - apiGroups: [""]
- resources: ["pods"]
- verbs: ["create","get", "watch", "list", "update", "delete"]
+  resources: ["pods"]
+  verbs: ["create","get", "watch", "list", "update", "delete"]
