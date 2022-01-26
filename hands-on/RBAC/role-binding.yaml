@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: delete-pod-rb1
+  namespace: ns1
+subjects:
+- kind: ServiceAccount
+  name: sa
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole 
+  name: delete-pod
+  apiGroup: rbac.authorization.k8s.io
+  ----
+  apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: delete-pod-rb2
+  namespace: ns2
+subjects:
+- kind: ServiceAccount
+  name: sa
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole 
+  name: delete-pod
+  apiGroup: rbac.authorization.k8s.io
