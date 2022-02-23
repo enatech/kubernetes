@@ -10,6 +10,9 @@ kubectl create namespace monitoring
 
 https://github.com/enatech/kubernetes/blob/master/monitoring/prometheus/cluster-role.yaml
 
-3.) Create configmap and deployment
+3.) Create configmap, deployment and service
+
+https://github.com/enatech/kubernetes/blob/master/monitoring/prometheus/config-map.yaml
+
 
 4.) Access the Prometheus Dashboard.
