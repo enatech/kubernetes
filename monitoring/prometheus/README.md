@@ -8,6 +8,8 @@ kubectl create namespace monitoring
 
 2.) Create ClusterRole and ClusterRoleBindings
 
+https://github.com/enatech/kubernetes/blob/master/monitoring/prometheus/cluster-role.yaml
+
 3.) Create configmap and deployment
 
 4.) Access the Prometheus Dashboard.
