@@ -14,5 +14,8 @@ https://github.com/enatech/kubernetes/blob/master/monitoring/prometheus/cluster-
 
 https://github.com/enatech/kubernetes/blob/master/monitoring/prometheus/config-map.yaml
 
+https://github.com/enatech/kubernetes/blob/master/monitoring/prometheus/deployment.yaml
+
+https://github.com/enatech/kubernetes/blob/master/monitoring/prometheus/service.yaml
 
 4.) Access the Prometheus Dashboard.
